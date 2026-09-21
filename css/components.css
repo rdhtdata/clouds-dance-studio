@@ -1536,23 +1536,269 @@
   left: 0;
   width: 100%;
   background-color: rgba(18, 17, 16, 0.96);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid var(--border-dark);
-  padding: 10px 16px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 14px max(10px, env(safe-area-inset-bottom));
   z-index: 980;
-  gap: var(--space-2);
+  gap: 10px;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.mobile-sticky-bar .btn {
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
+  /* Hide desktop-only elements */
   .nav-desktop { display: none; }
+  .floating-whatsapp-btn { display: none; }
+  
+  /* Enable Mobile Controls */
   .mobile-toggle { display: flex; }
   .mobile-sticky-bar { display: flex; }
-  .floating-whatsapp-btn {
-    bottom: 68px;
-    right: 16px;
-    width: 44px;
-    height: 44px;
+  
+  /* Ensure page content isn't covered by sticky action bar */
+  body { 
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); 
   }
-  .form-grid-2 { grid-template-columns: 1fr; }
-  body { padding-bottom: 58px; }
+
+  /* Header mobile adjustment */
+  .site-header {
+    height: 62px;
+  }
+
+  .site-header.is-scrolled {
+    height: 58px;
+  }
+
+  .brand-title {
+    font-size: 1.1rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.58rem;
+  }
+
+  .brand-logo-img {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Mobile Drawer full height */
+  .mobile-drawer {
+    padding: 76px 20px max(24px, env(safe-area-inset-bottom));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: space-between;
+  }
+
+  .mobile-nav-link {
+    font-size: 1.4rem;
+    padding: 6px 0;
+  }
+
+  /* Section Spacings on Mobile */
+  .section {
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 6.5vw, 2.3rem);
+    line-height: 1.12;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: var(--space-4);
+  }
+
+  /* About Section on Mobile */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .about-statement {
+    font-size: 1.5rem;
+  }
+
+  .about-pillars-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .about-pillar {
+    padding: 16px;
+  }
+
+  /* Pathway Cards on Mobile */
+  .pathway-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .pathway-item {
+    padding: 20px 16px;
+  }
+
+  /* Facility Grid on Mobile */
+  .experience-facilities-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .facility-card {
+    padding: 16px;
+  }
+
+  .experience-banner {
+    height: 280px;
+    margin-bottom: var(--space-4);
+  }
+
+  .experience-banner-content {
+    padding: 20px 16px;
+  }
+
+  /* Instructors on Mobile */
+  .instructors-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .instructor-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .instructor-photo-wrap {
+    width: 90px;
+    height: 110px;
+    flex-shrink: 0;
+  }
+
+  .instructor-details {
+    padding: 0;
+  }
+
+  .instructor-name {
+    font-size: 1.1rem;
+  }
+
+  .instructor-bio {
+    display: none;
+  }
+
+  /* Timetable on Mobile */
+  .schedule-row {
+    grid-template-columns: 1fr;
+    padding: 14px;
+    gap: 8px;
+  }
+
+  .schedule-row .btn {
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .schedule-tabs-row {
+    gap: 6px;
+    margin-bottom: var(--space-4);
+  }
+
+  .schedule-tab-btn {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  /* Dual Branches on Mobile */
+  .branches-dual-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .branch-card {
+    padding: 20px 16px;
+  }
+
+  .branch-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .branch-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .branch-map-embed {
+    height: 190px;
+  }
+
+  /* Review Roll Cards on Mobile */
+  .review-roll-card {
+    width: 290px;
+    padding: 18px 16px;
+  }
+
+  .review-quote-text {
+    font-size: 0.86rem;
+  }
+
+  /* Prevent iOS Safari input zoom */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Mobile Bottom Sheet Modal */
+  .modal-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .modal-dialog {
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+    max-height: 92vh;
+    padding: 24px 18px max(24px, env(safe-area-inset-bottom));
+  }
+
+  .modal-close {
+    top: 14px;
+    right: 14px;
+  }
+
+  /* Footer on Mobile */
+  .footer-columns-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 }

@@ -1,0 +1,325 @@
+/* ==========================================================================
+   CLOUDS DANCE STUDIO — Master Design System & Typography
+   Editorial Contemporary Brand Identity
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Syne:wght@600;700;800&display=swap');
+
+:root {
+  /* Editorial Color Palette */
+  --bg-light: #FAF8F5;
+  --bg-light-alt: #F0ECE1;
+  --surface-light: #FFFFFF;
+  
+  --bg-dark: #121110;
+  --bg-dark-alt: #181716;
+  --surface-dark: #1E1D1B;
+
+  /* Typography Colors */
+  --text-dark-primary: #1A1918;
+  --text-dark-secondary: #5C5750;
+  --text-dark-muted: #8A847B;
+  
+  --text-light-primary: #FAF8F5;
+  --text-light-secondary: #B5AFA6;
+  --text-light-muted: #7A756D;
+
+  /* Clouds Brand Palette (Studio Sunburst Amber, Deep Charcoal & Pure Cream) */
+  --accent: #FFB703;
+  --accent-hover: #F09A00;
+  --accent-dark: #D48B00;
+  --accent-soft: rgba(255, 183, 3, 0.14);
+  --accent-border: rgba(255, 183, 3, 0.45);
+  --accent-glow: rgba(255, 183, 3, 0.25);
+  --accent-coral: #E85D04;
+
+  /* Functional WhatsApp Color */
+  --whatsapp: #25D366;
+  --whatsapp-hover: #1EBE5B;
+
+  /* Crisp 1px Borders */
+  --border-light: #E6E0D5;
+  --border-light-strong: #D1C9BC;
+  --border-dark: rgba(255, 255, 255, 0.1);
+  --border-dark-strong: rgba(255, 255, 255, 0.2);
+
+  /* Typography */
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Strict Spacing Scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+  --space-9: 120px;
+
+  --container-max: 1240px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.18s var(--ease-out);
+  --transition-smooth: 0.3s var(--ease-out);
+  --transition-slow: 0.5s var(--ease-out);
+}
+
+/* Resets */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 86px;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-dark-primary);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+/* Layout Containers & Consistent Grid Alignment */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 4vw, 40px);
+  padding-right: clamp(20px, 4vw, 40px);
+}
+
+.section {
+  padding-top: clamp(64px, 8vw, 112px);
+  padding-bottom: clamp(64px, 8vw, 112px);
+  position: relative;
+}
+
+.section-light {
+  background-color: var(--bg-light);
+  color: var(--text-dark-primary);
+}
+
+.section-light-alt {
+  background-color: var(--bg-light-alt);
+  color: var(--text-dark-primary);
+}
+
+.section-dark {
+  background-color: var(--bg-dark);
+  color: var(--text-light-primary);
+}
+
+.section-dark-alt {
+  background-color: var(--bg-dark-alt);
+  color: var(--text-light-primary);
+}
+
+/* Editorial Typography */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-4);
+}
+
+.section-subtitle {
+  font-size: clamp(0.98rem, 1.6vw, 1.12rem);
+  line-height: 1.65;
+  max-width: 620px;
+  font-weight: 400;
+}
+
+.section-light .section-subtitle,
+.section-light-alt .section-subtitle {
+  color: var(--text-dark-secondary);
+}
+
+.section-dark .section-subtitle,
+.section-dark-alt .section-subtitle {
+  color: var(--text-light-secondary);
+}
+
+/* Minimalist Editorial Section Tag */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: var(--space-3);
+  color: var(--accent);
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 1.5px;
+  background-color: var(--accent);
+}
+
+/* Refined Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 13px 22px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #121110;
+  font-weight: 700;
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #0c0b0a;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-dark {
+  background-color: var(--text-dark-primary);
+  color: #ffffff;
+  border-color: var(--text-dark-primary);
+}
+
+.btn-dark:hover {
+  background-color: #000000;
+  transform: translateY(-1px);
+}
+
+.btn-outline-dark {
+  background-color: transparent;
+  color: var(--text-dark-primary);
+  border-color: var(--border-light-strong);
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--text-dark-primary);
+  color: #ffffff;
+  border-color: var(--text-dark-primary);
+}
+
+.btn-whatsapp {
+  background-color: var(--whatsapp);
+  color: #ffffff;
+  border-color: var(--whatsapp);
+}
+
+.btn-whatsapp:hover {
+  background-color: var(--whatsapp-hover);
+  border-color: var(--whatsapp-hover);
+  transform: translateY(-1px);
+}
+
+.btn-sm {
+  padding: 9px 16px;
+  font-size: 0.78rem;
+}
+
+.btn-lg {
+  padding: 15px 28px;
+  font-size: 0.92rem;
+}
+
+/* Subtle Scroll Animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
